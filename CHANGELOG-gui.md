@@ -16,7 +16,7 @@ The format is based on [Keep a Changelog].
 ### Removed
 
 ### Fixed
-- Fixed an issue where the progress bar flickered and did not display correct progress in environments using WebKit as the renderer. [`#2640`](https://github.com/vrc-get/vrc-get/issues/2640)
+- Fixed an issue where the progress bar flickered and did not display correct progress in environments using WebKit as the renderer. [`#2641`](https://github.com/vrc-get/vrc-get/pull/2641)
 
 ### Security
 
