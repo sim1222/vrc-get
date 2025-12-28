@@ -20,7 +20,9 @@ const Progress = ({
 		{...props}
 	>
 		<ProgressPrimitive.Indicator
-			// Removed `transition-all` as a workaround for flickers in WebKit. ref: https://github.com/vrc-get/vrc-get/issues/2640
+			// Removed `transition-all` as a workaround for flickers in WebKit. 
+			// ref: https://github.com/vrc-get/vrc-get/issues/2640
+			// ref: https://bugs.webkit.org/show_bug.cgi?id=304741
 			className="h-full w-full flex-1 bg-primary"
 			style={{
 				transform: `translateX(-${
