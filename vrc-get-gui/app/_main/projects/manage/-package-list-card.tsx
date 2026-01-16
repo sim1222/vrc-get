@@ -892,7 +892,7 @@ const PackageRow = memo(function PackageRow({
 					)
 				) : pkg.sources.size === 1 ? (
 					<Tooltip>
-						<TooltipTrigger>
+						<TooltipTrigger asChild>
 							<p className="overflow-hidden text-ellipsis">
 								{[...pkg.sources][0]}
 							</p>
