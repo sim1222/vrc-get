@@ -95,7 +95,8 @@ export function applyChangesMutation(projectPath: string) {
 			console.error(e);
 			toastThrownError(e);
 		},
-		onSettled: async () => {
+		onSettled: async (d) => {
+			if (!d) return;
 			document.dispatchEvent(new Event("post-package-changes"));
 			await queryClient.invalidateQueries({
 				queryKey: ["projectDetails", projectPath],
@@ -110,7 +111,7 @@ export function applyChangesMutation(projectPath: string) {
 export async function applyChanges(
 	projectPath: string,
 	operation: RequestedOperation,
-) {
+): Promise<boolean> {
 	try {
 		const existingPackages = queryClient.getQueryData(
 			environmentPackages(projectPath).queryKey,
@@ -123,8 +124,8 @@ export async function applyChanges(
 				existingPackages,
 			}))
 		) {
-			// close window
-			return;
+			// close window without applying changes
+			return false;
 		}
 		await commands.projectApplyPendingChanges(
 			projectPath,
@@ -140,6 +141,7 @@ export async function applyChanges(
 			throw e;
 		}
 	}
+	return true;
 }
 
 function createChanges(
