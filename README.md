@@ -1,3 +1,10 @@
+# License regarding modifications
+The original code is licensed under the MIT License.
+
+Any modifications provided in this repository are dedicated to the public domain (or CC0).
+
+You can use these changes freely without attribution.
+
 `vrc-get`
 ====
 
